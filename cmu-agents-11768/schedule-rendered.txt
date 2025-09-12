@@ -1,0 +1,151 @@
+11-768: AI Agents
+
+Fall 2026 @ Carnegie Mellon University
+
+Home
+Schedule
+Assignments
+Syllabus & Policies
+Staff
+Schedule
+Tue, Aug 25
+Course Overview: What Is an Agent?
+
+Module: Introduction and Agent Capabilities
+
+Slides: Lecture 1 slides
+
+Readings: Toolformer · ReAct · Mini-SWE-Agent
+
+Thu, Aug 27
+Agent Capabilities 1: Tool Use
+
+Module: Introduction and Agent Capabilities
+
+Tue, Sep 1
+Agent Capabilities 2: Context Management for Long-Context LLMs
+
+Module: Introduction and Agent Capabilities
+
+Thu, Sep 3
+Agent Capabilities 3: Skills and Memory
+
+Module: Introduction and Agent Capabilities
+
+Tue, Sep 8
+Agent Capabilities 4: Planning, Task Decomposition, and Multi-Agent Coordination
+
+Module: Introduction and Agent Capabilities
+
+Thu, Sep 10
+Domains 1: Coding Agents
+
+Module: Domains
+
+Milestone: Assignment 1 due: Harness
+
+Tue, Sep 15
+Domains 2: GUI Agents
+
+Module: Domains
+
+Thu, Sep 17
+Training 1: Supervised Fine-Tuning (SFT)
+
+Module: Training Methods
+
+Tue, Sep 22
+Training 2: Reinforcement Learning Basics
+
+Module: Training Methods
+
+Thu, Sep 24
+Domains 3: Deep Research Agents
+
+Module: Domains
+
+Milestone: Assignment 2 due: Eval
+
+Tue, Sep 29
+Training 3: Advanced RL Algorithms
+
+Module: Training Methods
+
+Thu, Oct 1
+Training 4: RL Systems
+
+Module: Training Methods
+
+Tue, Oct 6
+Safety 1: Sandboxing and Credential Management
+
+Module: Agent Safety
+
+Thu, Oct 8
+Frameworks 1: OpenHands
+
+Module: Agent Frameworks
+
+Tue, Oct 13
+Fall Break
+Thu, Oct 15
+Fall Break
+Tue, Oct 20
+Frameworks 2: LangGraph
+
+Module: Agent Frameworks
+
+Thu, Oct 22
+Safety 2: Observability and Monitoring
+
+Module: Frameworks and Safety
+
+Milestone: Assignment 3 due: Training
+
+Tue, Oct 27
+Agents and the Future of Work
+
+Module: Interaction and Projects
+
+Thu, Oct 29
+Interaction 1: Multi-Agent Interaction
+
+Module: Interaction and Projects
+
+Tue, Nov 3
+Project hours
+Thu, Nov 5
+Project hours
+Tue, Nov 10
+Interaction 2: Human-Agent Interaction
+
+Module: Interaction and Projects
+
+Thu, Nov 12
+Search 1: Reranking and Critic Models
+
+Module: Search and Inference
+
+Tue, Nov 17
+Search 2: Tree Search
+
+Module: Search and Inference
+
+Thu, Nov 19
+Guest Lecture
+
+Module: Advanced Topics
+
+Tue, Nov 24
+Guest Lecture
+
+Module: Advanced Topics
+
+Thu, Nov 26
+Thanksgiving
+Tue, Dec 1
+Final presentations (posters)
+Thu, Dec 3
+Final presentations (posters)
+
+© 2026 Graham Neubig and Daniel Fried

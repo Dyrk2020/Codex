@@ -1,0 +1,10 @@
+https://www.cmu.edu/ | Carnegie Mellon University
+https://www.cmu-agents.com/#/ | Home
+https://www.cmu-agents.com/#/schedule | Schedule
+https://www.cmu-agents.com/#/assignments | Assignments
+https://www.cmu-agents.com/#/syllabus | Syllabus & Policies
+https://www.cmu-agents.com/#/staff | Staff
+https://www.cmu-agents.com/slides/lecture-01-agents.pdf | Lecture 1 slides
+https://arxiv.org/abs/2302.04761 | Toolformer
+https://arxiv.org/abs/2210.03629 | ReAct
+https://github.com/swe-agent/mini-swe-agent | Mini-SWE-Agent

@@ -1,0 +1,36 @@
+11-768: AI Agents
+
+Fall 2026 @ Carnegie Mellon University
+
+Home
+Schedule
+Assignments
+Syllabus & Policies
+Staff
+Assignments
+
+Assignment descriptions, starter materials, and submission links will be posted here as they become available.
+
+Assignment 1 · Harness
+
+Tentative due date: Thu, Sep 10, 2026
+
+Build the harness infrastructure for a coding agent on top of an open-source LLM.
+
+Assignment 2 · Eval
+
+Tentative due date: Thu, Sep 24, 2026
+
+Design the evaluation framework needed to measure agent correctness and functionality.
+
+Assignment 3 · Training
+
+Tentative due date: Thu, Oct 22, 2026
+
+Implement the training procedures used to adapt and improve the agent.
+
+Half-semester research project
+
+Teams of 2–3 explore an advanced topic in LLM agents and produce a proposal, check-in, poster presentation, and final report.
+
+© 2026 Graham Neubig and Daniel Fried
