@@ -1,0 +1,9 @@
+instructors:
+  - name: Aravind Machiry
+    profile_pic: /_images/pp/machiry.png
+    webpage: https://machiry.github.io/
+
+teaching_assistants:
+  - name: Shashank Sharma
+    email: sharm611@purdue.edu
+    profile_pic: /_images/pp/shank.jpeg
