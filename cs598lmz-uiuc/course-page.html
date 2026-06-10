@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html 
+xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="screen">
+    @import url( ../index-style.css );
+  </style>
+  <title>CS598LMZ: Software Quality Assurance with Generative AI</title>
+</head>
+ 
+<body>
+ <div id="kan">
+<h1>CS598LMZ: Software Quality Assurance with Generative AI</h1>
+ 
+
+
+<ul>
+<li><b>Instructor:</b> <a href="http://lingming.cs.illinois.edu/">Lingming Zhang</a> (<a href="mailto:lingming@illinois.edu">lingming@illinois.edu</a>)</li>
+<li><b>TA:</b> <a href="https://steven.cs.illinois.edu/">Chunqiu Steven Xia</a> (<a href="mailto:chunqiu2@illinois.edu">chunqiu2@illinois.edu</a>)</li>
+<li><b>Class Time:</b> Tues/Thur 09:30AM - 10:45AM (Central Time) [<a href="https://illinois.zoom.us/j/84174942197?pwd=VUhuMG9XUktOWDBueUI2RXlhSEdYQT09">Zoom Link</a>]</li>
+<li><b>Instructor Office hours:</b> Tues/Thur 08:30AM - 09:30AM (Central Time) [Zoom Link same as above]</li>
+<li><b>TA Office hours:</b> Thur 3:00PM - 5:00PM (Central Time) [<a href="https://illinois.zoom.us/j/4188775672?pwd=a3d4YjZoRHNuSWNGQkhibGVJVHZsQT09">Zoom Link</a>]</li>
+<!--li><b>Zoom link:</b> <a href="https://illinois.zoom.us/j/84174942197?pwd=VUhuMG9XUktOWDBueUI2RXlhSEdYQT09">illinois.zoom.us/j/84174942197</a> (<font class="redtext">We will meet in person from the week of Feb. 19th. Before that we will be on zoom.</font>)</li-->
+
+
+<!--li><b>Location:</b> <a href="https://map.illinois.edu/view?skinId=0&ACTION=MAP&buildingId=563">1304 Siebel Center for Comp Science</a> (<font class="redtext">We will meet in person from the week of Feb. 19th. Before that we will be on zoom.</font>)</li-->
+<li><b>Forum and assignment/project submissions:</b> <a href="https://campuswire.com/c/GC2CA245B">Campuswire</a> (<font class="redtext">Create an account with your netid@illinois.edu email address, you should already have access; join before your first class as all notifications will be there</font>)</li>
+<!--li><b>Asynchronous videos:</b> <a href="https://mediaspace.illinois.edu/">Illinois Media Space</a> (links available on Campuswire)</li-->
+<!--li><b>Homework/project submissions:</b> <a href="https://canvas.illinois.edu/courses/18785">Canvas</a> (<font class="redtext">You should already have access, let me know if it does not work for you</font>)</li-->
+</ul>
+
+
+<h2>Course Overview</h2>
+
+<p class="welcome">
+<b>Topics: </b>Modern Large Language Models (LLMs) like ChatGPT have demonstrated remarkable capabilities across diverse fields, notably in natural language processing and programming. In this course, we will together explore the impact of such advanced generative AI techniques on the important area of software quality assurance. This course will dive deep into the intersection of generative AI and software quality assurance, illustrating how these technologies can be synergistically combined to elevate software reliability, robustness, and correctness. We will cover a range of interesting topics, including foundational principles and cutting-edge research on software quality assurance, recent representative LLMs for code, emerging techniques on leveraging LLMs for software quality assurance, as well as innovative methods targeting quality assurance of LLMs themselves. 
+
+<!--ul>
+<li>Background and Basics</li><ul>
+<li>Course Introduction
+<li>Program Analysis
+<li>Software Testing
+<li>Automated Debugging
+<li>LLM Basics
+</ul>
+<li>Code LLMs</li><ul>
+<li>Encoder-only Models
+<li>Encoder-Decoder Models
+<li>Decoder-only Models
+<li>Pretrained on Foundation Models
+<li>Instruction Tuning
+<li>Others
+</ul>
+<li>Code LLMs for Software QA</li><ul>
+<li>Fuzz Testing
+<li>Unit Testing
+<li>Program Repair
+<li>Automated Debugging
+<li>Software Verification
+</ul>
+<li>Software QA for Code LLMs</li><ul>
+<li>Benchmarking
+<li>Code Correctness
+<li>Code Security
+<li>Model Security
+<li>System Reliability
+</ul>
+</ul></p-->
+
+<br>
+
+<p><b>Prerequisites: </b>Note that this is a research-driven course, and requires students with strong backgrounds in both machine learning and programming: </p>
+<ul>
+<li>Research background in PL/FM/SE or NLP/ML fields (mainly targeting students interested in research)
+<li>Proficient in Python programming
+<li>Completed courses in NLP/ML
+<li>Solid background in algorithms
+<li>Strong problem solving skills
+</ul>
+
+<h2>Class Organization</h2>
+
+<p>This course does not require any textbook. In each class, the students will participate in the discussion of research papers related to the same topic. Note that each student is expected to read the papers before each class. During the class, the students will be randomly chosen to answer questions related to the papers, such as:
+<ul>
+<li> What is the problem the paper tries to solve, and why this is important?</li>
+<li> What is the proposed solution, and what is the difference(s) with prior work?</li>
+<li> How is the proposed solution evaluated (e.g., with what benchmarks/subjects and what metrics) and is that convincing?
+<li> What are the results and do they meet the expectations?</li> 
+<li> What do you like the most about the paper and what are the limitations of the paper? (i.e., pros/cons)</li>
+<li> What could be the potential future work? 
+</ul>
+</p>
+<h2>Grading Details</h2>
+<p>There is no exam! The grading will be mainly based on the following aspects:</p>
+<ul>
+<li><b>Homework Assignments (20%):</b> There will be five assignments released on Campuswire ("Assignments" page). Please make sure that you follow the instructions and deadlines. No extensions or late submissions will be allowed unless the student reaches out before the deadline, and provides documentation of a valid excuse such as medical emergency or personal hardship.
+<li><b>Paper Presentation (20%):</b> Each student is going to lead the discussion for one paper. The student should prepare slides for presenting the paper in details. <font class="redtext">Select at least five classes you would like to present by Jan. 26th</font> (submission link shown in Campuswire "Assignments"). <font class="redtext">Upload your initial slides to Campuswire a week before your presentation slot for comments, and upload the final version of the slides 48 hours before the lecture.</font> <i>Note that you should not directly reuse the original slides from the authors, but feel free to incorporate anything useful from the original slides in your own slides.</i> </li>
+<li><b>Class Participation (10%):</b> This is a discussion-based course, so it does matter that you show up in our zoom/in-person class meetings and participate in the discussion.</li>
+<li><b>Course Project (50%):</b> The best way to learn software engineering is go there and do software engineering! You will undertake your own course project in a group (3-5 students per group). I will provide a list of directions (available on Campuswire) to get you started thinking, but I highly encourage you to pursue your own ideas. You are encouraged to use <a href="https://github.com/">GitHub</a> to host your development history and all the code/data. <font class="redtext">For the teams proposing your own ideas, you are <i>required</i> to meet with Lingming before Feb. 5th to discuss your proposal.</font>
+The detailed/deadlines for each phase can be found in the below schedule section, while here are the grading details for each phase of the project:
+<ul>
+<li><b>Proposal submission/presentation (5%)</b></li>
+<li><b>Midterm project report/presentation (20%)</b></li>
+<li><b>Final project report/presentation (25%)</b></li>
+</ul>
+</li>
+</ul>
+<p>Based on your points, you will get at least these grades: A (93%), A- (90%), B+ (87%), B (83%), B- (80%), C+ (77%), C (73%), C- (70%), D+ (67%), D (63%), D- (60%), and F (for less than 60%). The instructor reserves the right to lower the number of required points but will not increase them.</p>
+
+
+<h2>Tentative Schedule</h2>
+
+
+<table id="schedule-tab">
+<tbody>
+	<tr>
+		<th>Date</th>
+		<th>Topics/Readings</th>
+		<th>Memo</th>
+	</tr>
+	<tr class="deadline">
+		<td></td>
+		<td><b>Module I: Background and Basics</b></td>
+		<td>
+		</td>
+	</tr>
+		<tr>
+		<td>01/16</td>
+		
+		<td><b>Course Introduction</b><ul></td>
+		<td width="40%">Presenter: Lingming Zhang (<a href="cs598-s24/intro.pdf">Slides</a>)</td>
+	</tr>
+	<tr>
+		<td>01/18</td>
+		
+		<td><b>Program Analysis Basics (I)</b><ul></td>
+		<td>Presenter: Lingming Zhang (<a href="cs598-s24/analysis.pdf">Slides</a>)</td>
+	</tr>
+	<tr>
+		<td>01/23</td>
+		<td><b>Program Analysis Basics (II)</b><ul></td>
+		<td>Presenter: Lingming Zhang (see above link)</td>
+	</tr>
+	<tr>
+		<td>01/25</td>
+		<td><b>Software Testing</b><ul><li>[Additional Read] <a href="https://homes.cs.washington.edu/~mernst/pubs/feedback-testgen-icse2007.pdf">Feedback-directed Random Test Generation</a> (ICSE'07)
+		<li>[Additional Read] <a href="https://www.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf">Finding and Understanding Bugs in C Compilers</a> (PLDI'11)
+		<li>[Additional Read] <a href="https://www.usenix.org/system/files/conference/usenixsecurity12/sec12-final73.pdf">Fuzzing with Code Fragments</a> (SEC'12)
+		<li>[Additional Read] <a href="https://people.inf.ethz.ch/suz/publications/emi.pdf">Compiler Validation via Equivalence Modulo Inputs</a> (PLDI'14) </ul></td>
+		<td>Presenter: Lingming Zhang (<a href="cs598-s24/testing.pdf">Slides</a>)</td>
+	</tr>
+	<!--tr class="deadline">
+		<td>01/30</td>
+		<td><b>Presentation Choice Submission (11:59pm)</b></td>
+		<td><font class="redtext">Submission Link: [<a href="">Link</a>]</font> (Illinois account required)
+		</td>
+	</tr-->
+	<tr>
+		<td>01/30</td>
+		<td><b>Automated Debugging</b><ul><li>[Additional Read] <a href="https://faculty.cc.gatech.edu/~john.stasko/papers/icse02.pdf">Visualization of Test Information to Assist Fault Localization</a> (ICSE'02)
+		<li>[Additional Read] <a href="https://lingming.cs.illinois.edu/publications/issta2019a.pdf">Practical Program Repair via Bytecode Mutation</a> (ISSTA'19)
+		<li>[Additional Read] <a href="https://www.computer.org/csdl/journal/ts/2016/08/07390282/13rRUwh80Dh">A Survey on Software Fault Localization</a> (TSE'16) 
+		<li>[Additional Read] <a href="https://www.comp.nus.edu.sg/~abhik/pdf/cacm19.pdf">Automated Program Repair</a> (CACM'19) 
+		</ul></td>
+		<td>Presenter: Lingming Zhang (<a href="cs598-s24/debugging.pdf">Slides</a>)</td>
+	</tr>
+	<tr>
+		<td>02/01</td>
+		<td><b>LLM Basics</b><ul></td>
+		<td>Presenter: Steven Xia (<a href="cs598-s24/llms.pdf">Slides</a>)</td>
+	</tr>
+	<tr class="deadline">
+		<td></td>
+		<td><b>Module II: Code LLMs</b></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>02/06</td>
+		
+		<td><b>Encoder-only Models</b><ul><li><a href="https://arxiv.org/abs/2002.08155">CodeBERT: A Pre-Trained Model for Programming and Natural Languages</a> (EMNLP'20)
+		<li><a href="https://arxiv.org/abs/2009.08366">GraphCodeBERT: Pre-training Code Representations with Data Flow</a> (ICLR'21)</ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>02/08</td>
+		<td><b>Encoder-Decoder Models</b><ul><li><a href="https://arxiv.org/abs/2109.00859">CodeT5: Identifier-aware Unified Pre-trained Encoder-Decoder Models for Code Understanding and Generation</a> (EMNLP'21)
+		<li><a href="https://arxiv.org/abs/2305.07922">CodeT5+: Open Code Large Language Models for Code Understanding and Generation</a> 
+		<li><a href="https://arxiv.org/abs/2203.07814">Competition-Level Code Generation with AlphaCode</a> </ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>02/13</td>
+		<td><b>Decoder-only Models</b><ul><li><a href="https://arxiv.org/abs/2203.13474">CodeGen: An Open Large Language Model for Code with Multi-Turn Program Synthesis</a>
+		<li><a href="https://arxiv.org/abs/2306.11644">Textbooks Are All You Need</a> 
+		<li><a href="https://arxiv.org/abs/2305.06161">StarCoder: may the source be with you!</a> </ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr class="report">
+		<td>02/15</td>
+		<td><b>Proposal Presentation</b></td>
+		<td>Each team should prepare 4-5 slides to present your proposal in class for about 5min, including:
+		<ul><li> Problem: the problem you want to work on and the background
+			<li>Proposed solution: how you want to solve it
+			<li>Evaluation: how you will evaluate it (e.g., with what benchmarks/subjects and what metrics)
+			<li>Initial results: what you did so far
+			<li>Future plan: what you will do in the midterm and final reports
+		</td>
+	</tr>
+	<tr>
+		<td>02/20</td>
+		<td><b>Trained on Foundation Models</b><ul><li><a href="https://arxiv.org/pdf/2308.12950.pdf">Code Llama: Open Foundation Models for Code</a>
+		<li><a href="https://arxiv.org/abs/2107.03374">Evaluating Large Language Models Trained on Code</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>02/22</td>
+		<td><b>Instruction Tuning</b><ul><li><a href="https://arxiv.org/abs/2306.08568">WizardCoder: Empowering Code Large Language Models with Evol-Instruct</a>
+		<li><a href="https://arxiv.org/abs/2312.02120">Magicoder: Source Code Is All You Need</a>
+		<li><a href="https://arxiv.org/abs/2308.07124">OctoPack: Instruction Tuning Code Large Language Models</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>02/27</td>
+		<td><b>Others</b><ul><li><a href="https://arxiv.org/abs/2311.14904">LLM-Assisted Code Cleaning For Training Accurate Code Generators</a>
+		<li><a href="https://arxiv.org/abs/2306.07487">TRACED: Execution-aware Pre-training for Source Code</a> (ICSE'24)
+		<li><a href="https://arxiv.org/abs/2401.03003">AST-T5: Structure-Aware Pretraining for Code Generation and Understanding</a>
+		<li><a href="https://arxiv.org/abs/2310.08992">CodeChain: Towards Modular Code Generation Through Chain of Self-revisions with Representative Sub-modules</a>
+		<li><a href="https://arxiv.org/abs/2306.14893">LongCoder: A Long-Range Pre-trained Language Model for Code Completion</a> (ICML'23)</ul></td>
+		<td>Presenter: </td>
+	</tr>
+
+	<tr class="deadline">
+		<td></td>
+		<td><b>Module III: Code LLMs for Software QA</b></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>02/29</td>
+		<td><b>Fuzz Testing I</b><ul><li><a href="https://arxiv.org/abs/2212.14834">Large Language Models are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via Large Language Models</a> (ISSTA'23)
+		<li><a href="https://arxiv.org/abs/2304.02014">Large Language Models are Edge-Case Generators: Crafting Unusual Programs for Fuzzing Deep Learning Libraries</a> (ICSE'24)
+		<li><a href="https://arxiv.org/abs/2310.15991">White-box Compiler Fuzzing Empowered by Large Language Models</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>03/05</td>
+		<td><b>Fuzz Testing II</b><ul><li><a href="https://arxiv.org/abs/2308.04748">Universal Fuzzing via Large Language Models	</a> (ICSE'24)
+		<li><a href="https://mengrj.github.io/files/chatafl.pdf">Large Language Model guided Protocol Fuzzing</a> (NDSS'24)
+		<li><a href="https://arxiv.org/abs/2401.00563">KernelGPT: Enhanced Kernel Fuzzing via Large Language Models</a> </ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>03/07</td>
+		<td><b>Unit Testing</b><ul><li><a href="https://arxiv.org/abs/2305.04207">No More Manual Tests? Evaluating and Improving ChatGPT for Unit Test Generation</a>
+		<li><a href="https://www.carolemieux.com/codamosa_icse23.pdf">CodaMOSA: Escaping Coverage Plateaus in Test Generation with Pre-trained Large Language Models</a> (ICSE'23)
+		<li><a href="https://arxiv.org/abs/2302.06527">An Empirical Evaluation of Using Large Language Models for Automated Unit Test Generation</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+		<tr class="holiday">
+		<td>03/12</td>
+		
+		<td><b>Spring Break</b></td>
+		<td></td>
+	</tr>
+	<tr class="holiday">
+		<td>03/14</td>	
+		<td><b>Spring Break</b></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>03/19</td>
+		<td><b>Program Repair</b><ul><li><a href="https://lingming.cs.illinois.edu/publications/fse2022a.pdf">Less Training, More Repairing Please: Revisiting Automated Program Repair via Zero-shot Learning</a> (FSE'22)
+		<li><a href="https://lingming.cs.illinois.edu/publications/icse2023a.pdf">Automated Program Repair in the Era of Large Pre-trained Language Models</a> (ICSE'23)
+		<li><a href="https://arxiv.org/abs/2309.00608">Copiloting the Copilots: Fusing Large Language Models with Completion Engines for Automated Program Repair</a> (FSE'23)</ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>03/21</td>
+		<td><b>Automated Debugging</b><ul><li><a href="https://arxiv.org/abs/2304.00385">Keep the Conversation Going: Fixing 162 out of 337 bugs for $0.42 each using ChatGPT</a>
+		<li><a href="https://arxiv.org/pdf/2304.05128.pdf">Teaching Large Language Models to Self-Debug</a>
+		<li><a href="https://arxiv.org/pdf/2306.09896.pdf">Demystifying GPT Self-Repair for Code Generation</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+
+	<tr class="report">
+		<td>03/26</td>
+		<td><b>Project Midterm Presentation</b></td>
+		<td>Each team should prepare 8-9 slides to present the midterm progress report in class for about 8min (plus 2min for Q&A), including:
+		<ul><li>Problem: the problem you are working on
+			<li>Solution: how you are currently solving it
+			<li>Evaluation: how you are evaluating it
+			<li>Current results: what you did so far and whether you have met your midterm goal
+			<li>Future plan: what you will do in the next month to wrap up the project
+		</td>
+	</tr>
+	<tr class="report">
+		<td>03/28</td>
+		<td><b>Project Midterm Presentation</b></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>04/02</td>
+		<td><b>Program Analysis</b><ul><li><a href="https://arxiv.org/pdf/2310.08275.pdf">Harnessing the Power of LLM to Support Binary Taint Analysis</a>
+		<li><a href="https://arxiv.org/pdf/2310.12357.pdf">Large Language Models for Code Analysis: Do LLMs Really Do Their Job?</a>
+		<li><a href="https://arxiv.org/abs/2311.12420">How Far Have We Gone in Vulnerability Detection Using Large Language Models</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+
+	<tr>
+		<td>04/04</td>
+		<td><b>Software Verification</b><ul><li><a href="https://arxiv.org/pdf/2303.04910.pdf">Baldur: Whole-Proof Generation and Repair with Large Language Models</a>
+		<li><a href="https://mathai2023.github.io/papers/28.pdf">Lemur: Integrating Large Language Models in Automated Program Verification</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+
+	<tr class="deadline">
+		<td></td>
+		<td><b>Module IV: Software QA for Code LLMs</b></td>
+		<td>
+		</td>
+	</tr>
+
+	<tr>
+		<td>04/09</td>
+		<td><b>Benchmarking</b><ul><li><a href="https://arxiv.org/abs/2305.01210">Is Your Code Generated by ChatGPT Really Correct? Rigorous Evaluation of Large Language Models for Code Generation</a> (NeurIPS'23)
+		<li><a href="https://arxiv.org/abs/2308.01861">ClassEval: A Manually-Crafted Benchmark for Evaluating LLMs on Class-level Code Generation</a> (ICSE'24)
+		<li><a href="https://arxiv.org/abs/2401.03065">CRUXEval: A Benchmark for Code Reasoning, Understanding and Execution</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>04/11</td>
+		<td><b>Code Correctness</b><ul><li><a href="https://arxiv.org/abs/2303.11455">Large Language Models and Simple, Stupid Bugs</a> (MSR'23)
+		<li><a href="https://arxiv.org/pdf/2308.02312.pdf">Who Answers It Better? An In-Depth Analysis of ChatGPT and Stack Overflow Answers to Software Engineering Questions</a>
+		<li><a href="https://arxiv.org/abs/2308.03109">Lost in Translation: A Study of Bugs Introduced by Large Language Models while Translating Code</a> (ICSE'24)
+		<li><a href="https://arxiv.org/abs/2306.03438">Large Language Models of Code Fail at Completing Code with Potential Bugs</a> (NeurIPS'23)
+		</ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>04/16</td>
+		<td><b>Code Security</b><ul><li><a href="https://arxiv.org/pdf/2108.09293.pdf">Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions</a> (Oakland'22)
+		<li><a href="https://arxiv.org/pdf/2302.05319.pdf">Large Language Models for Code: Security Hardening and Adversarial Testing</a>
+		<li><a href="https://arxiv.org/pdf/2311.00889.pdf">Generate and Pray: Using SALLMS to Evaluate the Security of LLM Generated Code</a>
+		<li><a href="https://arxiv.org/abs/2208.09727">Lost at C: A User Study on the Security Implications of Large Language Model Code Assistants</a>
+		<li><a href="https://arxiv.org/pdf/2302.04012.pdf">CodeLMSec Benchmark: Systematically Evaluating and Finding Security Vulnerabilities in Black-Box Code Language Models</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr>
+		<td>04/18</td>
+		<td><b>Model Security</b><ul><li><a href="https://www.yi-zeng.com/wp-content/uploads/2024/01/view.pdf">How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs</a>
+		<li><a href="https://arxiv.org/abs/2309.10253">GPTFUZZER: Red Teaming Large Language Models with Auto-Generated Jailbreak Prompts</a>
+		<li><a href="https://arxiv.org/abs/2305.13860">Jailbreaking ChatGPT via Prompt Engineering: An Empirical Study	</a>
+		<li><a href="https://arxiv.org/pdf/2312.02119.pdf">Tree of Attacks: Jailbreaking Black-Box LLMs Automatically	</a></ul></td>
+		<td>Presenter: </td>
+	</tr>
+	<tr class="report">
+		<td>04/23</td>
+		<td><b>Project Final Presentation</b></td>
+		<td>Each team should prepare 10-15 slides to present the final report in class for about 10min (plus 2min for Q&A), including:
+		<ul><li>Problem: the problem you are working on
+			<li>Solution: how you are currently solving it
+			<li>Evaluation: how you are evaluating it
+			<li>Current results: what you did so far and whether you have met your final goal
+			<li>[Optional] Future plan: some potential future work if you still have bandwidth after the course 
+		</td>
+	</tr>
+		<tr class="report">
+		<td>04/25</td>
+		<td><b>Project Final Presentation</b></td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>04/30</td>
+		<td><b>System Reliability</b><ul><li><a href="https://arxiv.org/pdf/2207.13066.pdf">NNSmith: Generating Diverse and Valid Test Cases for Deep Learning Compilers</a> (ASPLOS'23)
+		<li><a href="https://arxiv.org/abs/2302.02261">NeuRI: Diversifying DNN Generation via Inductive Rule Inference</a> (FSE'23)
+		<li><a href="https://lingming.cs.illinois.edu/publications/icse2023b.pdf">Fuzzing Automatic Differentiation in Deep-Learning Libraries</a> (ICSE'23)</ul></td>
+		<td>Presenter: </td>
+	</tr>
+
+</tbody>
+</table>
+
+
+<!--h2>Resulting Publications</h2> 
+<p>The course projects of this course have resulted in the following research paper publications: 
+<ul>
+    <li> <b>Test-Case Prioritization for Configuration Testing
+            </b><br>Sam Cheng, Lingming Zhang, Darko Marinov, Tianyin Xu<br> 
+            <i>Proceedings of the  30th ACM International Symposium on Software
+                Testing and Analysis</i><br> (<i><a href="https://conf.researchr.org/home/issta-2021">ISSTA 2021</a></i>), 12 pages, to appear, July 2021. [<a
+                href="publications/issta2021b.pdf">PDF</a>]<br>
+                (This paper won an <a href="http://www.sigsoft.org/awards/distinguishedPaperAward.html"><b>ACM SIGSOFT Distinguished Paper Award</b></a>.)</li><p>
+    <li> <b>An Infrastructure Approach to Improving Effectiveness of Android UI Testing Tools
+            </b><br>Wenyu Wang, Wing Lam, Tao Xie<br> 
+            <i>Proceedings of the  30th ACM International Symposium on Software
+                Testing and Analysis</i><br> (<i><a href="https://conf.researchr.org/home/issta-2021">ISSTA 2021</a></i>), 12 pages, to appear, July 2021. [<a
+                href="https://wenyu.io/pub/issta21-toller.pdf">PDF</a>]</li><p>
+</ul-->
+
+    <h2>Academic Integrity Policy</h2>
+
+    <p>
+      The University of Illinois at Urbana-Champaign Student Code should also be considered as a part of this syllabus.
+      Students should pay particular attention to Article 1, Part 4: Academic Integrity.
+      Read the Code at the following URL: <a class="paperlink" href="http://studentcode.illinois.edu/" target="_blank">http://studentcode.illinois.edu/</a>.
+    </p>
+    <p>
+      Academic dishonesty may result in a failing grade.
+      Every student is expected to review and abide by the Academic Integrity Policy:
+      <a class="paperlink" href="http://studentcode.illinois.edu/" target="_blank">http://studentcode.illinois.edu/</a>.
+      Ignorance is not an excuse for any academic dishonesty.
+      It is your responsibility to read this policy to avoid any misunderstanding.
+      Do not hesitate to ask the instructor(s) if you are ever in doubt about what constitutes plagiarism,
+      cheating, or any other breach of academic integrity.
+    </p>
+
+    <h2>Students with Disabilities</h2>
+
+    <p>
+      To obtain disability-related academic adjustments and/or auxiliary aids,
+      students with disabilities must contact the course instructor and the as soon as possible.
+      To insure that disability-related concerns are properly addressed from the beginning,
+      students with disabilities who require assistance to participate in this class should
+      contact Disability Resources and Educational Services (DRES)
+      and see the instructor as soon as possible.
+      If you need accommodations for any sort of disability,
+      please speak to me after class, or make an appointment to see me,
+      or see me during my office hours. DRES provides students with academic accommodations,
+      access, and support services.
+      To contact DRES you may visit 1207 S. Oak St., Champaign, call 333-4603 (V/TDD),
+      or e-mail a message to <a href="mailto:disability@uiuc.edu">disability@uiuc.edu</a>.
+      Please refer to <a class="paperlink" href="http://www.disability.illinois.edu/" target="_blank">http://www.disability.illinois.edu/</a>.
+    </p>
+
+    <!--h2>Emergency Response Recommendations</h2>
+    <p>
+      Emergency response recommendations can be found at the following website:
+      <a class="paperlink" href="http://police.illinois.edu/emergency-preparedness/" target="_blank">http://police.illinois.edu/emergency-preparedness/</a>.
+        I encourage you to review this website and the campus building floor plans website
+        within the first 10 days of class: <a class="paperlink" href="http://police.illinois.edu/emergency-preparedness/building-emergency-action-plans/" target="_blank">http://police.illinois.edu/emergency-preparedness/building-emergency-action-plans/</a>.
+    </p-->
+
+    <h2>Family Educational Rights and Privacy Act (FERPA)</h2>
+
+    <p>
+      Any student who has suppressed their directory information pursuant to
+      Family Educational Rights and Privacy Act (FERPA) should self-identify
+      to the instructor to ensure protection of the privacy of their attendance
+      in this course.
+      See <a class="paperlink" href="http://registrar.illinois.edu/ferpa" target="_blank">http://registrar.illinois.edu/ferpa</a> for more information on FERPA.
+    </p>
+<h2>Statement on Mental Health</h2>
+
+<p>
+Diminished mental health, including significant stress, mood changes, excessive worry, substance/alcohol abuse, or problems with eating and/or sleeping can interfere with optimal academic performance, social development, and emotional well-being. The University of Illinois offers a variety of confidential services including individual and group counseling, crisis intervention, psychiatric services, and specialized screenings at no additional cost. If you or someone you know experiences any of the above mental health concerns, it is strongly encouraged to contact or visit any of the University's resources provided below. Getting help is a smart and courageous thing to do -- for yourself and for those who care about you.</p>
+
+<p>Counseling Center: 217-333-3704, 610 East John Street Champaign, IL 61820</p>
+
+<p>McKinley Health Center:217-333-2700, 1109 South Lincoln Avenue, Urbana, Illinois 61801
+</p>
+<p>University wellness center: https://wellness.illinois.edu/</p>
+<h2>Statement on Anti-Racism and Inclusivity</h2>
+<p>The intent of this section is to raise student and instructor awareness of the ongoing threat of bias and racism and of the need to take personal responsibility in creating an inclusive learning environment.</p>
+
+<p>The Grainger College of Engineering is committed to the creation of an anti-racist, inclusive community that welcomes diversity along a number of dimensions, including, but not limited to, race, ethnicity and national origins, gender and gender identity, sexuality, disability status, class, age, or religious beliefs. The College recognizes that we are learning together in the midst of the Black Lives Matter movement, that Black, Hispanic, and Indigenous voices and contributions have largely either been excluded from, or not recognized in, science and engineering, and that both overt racism and micro-aggressions threaten the well-being of our students and our university community.</p>
+
+<p>The effectiveness of this course is dependent upon each of us to create a safe and encouraging learning environment that allows for the open exchange of ideas while also ensuring equitable opportunities and respect for all of us. Everyone is expected to help establish and maintain an environment where students, staff, and faculty can contribute without fear of personal ridicule, or intolerant or offensive language. If you witness or experience racism, discrimination, micro-aggressions, or other offensive behavior, you are encouraged to bring this to the attention of the course director if you feel comfortable. You can also report these behaviors to the Bias Assessment and Response Team (BART) (https://bart.illinois.edu/). Based on your report, BART members will follow up and reach out to students to make sure they have the support they need to be healthy and safe. If the reported behavior also violates university policy, staff in the Office for Student Conflict Resolution may respond as well and will take appropriate action.</p>
+
+<h2>Sexual Misconduct Policy and Reporting</h2>
+<p>The University of Illinois is committed to combating sexual misconduct. As such, you should know that faculty and staff members are required to report any instances of sexual misconduct—which can include harassment, sexual assault, sexual exploitation, dating violence, domestic violence, and stalking—to the University's Title IX Office. What this means is that as your instructor, I am required to report any incidents of sexual misconduct that are directly reported to me, or of which I am somehow made aware. When a report is received, an individual with the Title IX Office reaches out to provide information about rights and options, including accommodations, support services, the campus disciplinary process, and law enforcement options.</p>
+
+<p>There is an exception to this reporting requirement about which you should be aware. A list of the designated University employees who, as counselors, confidential advisors, and medical professionals, do not have this reporting responsibility and can maintain confidentiality, can be found here: wecare.illinois.edu/resources/students/#confidential.<p>
+
+<p>Appointments with our campus's confidential advisors, who are specifically trained to support students who have experienced sexual misconduct, can be made by calling 217-333-3137 or emailing wrcadvocacy@illinois.edu.</p>
+<p>Other information about resources and reporting is available here: wecare.illinois.edu.</p>
+
+
+<div class="footer">
+Please send feedbacks and questions to <a href="mailto:lingming.zhang@utdallas.edu">lingming@illinois.edu</a>.
+ 
+<p class="disclaimer"> </p>
+ 
+</div>
+</div>
+ 
+</body>
+</html>
